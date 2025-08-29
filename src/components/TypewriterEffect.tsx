@@ -7,7 +7,7 @@ interface TypewriterEffectProps {
   className?: string;
 }
 
-const TypewriterEffect = ({ text, delay = 0, speed = 100, className = '' }: TypewriterEffectProps) => {
+const TypewriterEffect = ({ text, delay = 0, speed = 45, className = '' }: TypewriterEffectProps) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
