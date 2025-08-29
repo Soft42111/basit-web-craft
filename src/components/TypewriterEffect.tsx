@@ -2,25 +2,26 @@ import { useState, useEffect } from 'react';
 
 interface TypewriterEffectProps {
   text: string;
-  delay?: number;
-  speed?: number;
+  delay?: number; // initial delay before typing starts
+  speed?: number; // delay between each character
   className?: string;
 }
 
-const TypewriterEffect = ({ text, delay = 0, speed = 45, className = '' }: TypewriterEffectProps) => {
+const TypewriterEffect = ({ text, delay = 0, speed = 80, className = '' }: TypewriterEffectProps) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (currentIndex < text.length) {
+    // wait "delay" first, then type one character every "speed"
+    if (currentIndex < text.length) {
+      const timer = setTimeout(() => {
         setDisplayText(prev => prev + text.charAt(currentIndex));
         setCurrentIndex(prev => prev + 1);
-      }
-    }, delay + currentIndex * speed);
+      }, currentIndex === 0 ? delay : speed);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, [currentIndex, text, delay, speed]);
 
   useEffect(() => {
