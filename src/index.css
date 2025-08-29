@@ -88,19 +88,58 @@
     z-index: -1;
   }
   
-  /* Tech Icon Animations */
-  .tech-icon {
-    @apply relative p-4 rounded-xl bg-card border border-border transition-all duration-300 hover:scale-110 hover:rotate-3 cursor-pointer;
+  
+  /* Enhanced Tech Icon Animations */
+  .tech-icon-enhanced {
+    @apply relative p-4 rounded-xl bg-card border border-border transition-all duration-500 hover:scale-105 cursor-pointer;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
   
-  .tech-icon:hover {
-    @apply border-primary shadow-[0_0_30px_hsl(var(--primary)/0.4)] bg-card-hover;
-    box-shadow: var(--shadow-glow);
+  .tech-icon-enhanced:hover {
+    @apply border-primary bg-card-hover;
+    box-shadow: 
+      var(--shadow-glow),
+      0 25px 50px -12px hsl(var(--primary) / 0.25);
+    transform: scale(1.05) translateY(-5px) rotateY(5deg);
   }
   
-  .tech-icon:hover .tech-icon-inner {
-    @apply scale-125;
-    animation: bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  .tech-icon-enhanced:nth-child(even):hover {
+    transform: scale(1.05) translateY(-5px) rotateY(-5deg);
+  }
+  
+  .tech-icon-enhanced::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 transition-all duration-500;
+    z-index: -1;
+  }
+  
+  .tech-icon-enhanced:hover::before {
+    @apply opacity-100;
+    transform: scale(1.1);
+  }
+  
+  .tech-icon-enhanced::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl opacity-0 transition-all duration-300;
+    background: radial-gradient(circle at center, hsl(var(--primary) / 0.1), transparent 70%);
+    z-index: -1;
+  }
+  
+  .tech-icon-enhanced:hover::after {
+    @apply opacity-100;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% { 
+      transform: scale(1.2);
+      opacity: 0.1;
+    }
   }
   
   /* Project Cards */
