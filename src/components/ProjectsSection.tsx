@@ -59,7 +59,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <div
               key={project.name}
-              className="project-card fade-in-up"
+              className="project-card group fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative z-10">
