@@ -61,7 +61,7 @@ export default {
 			},
 			boxShadow: {
 				'glow': 'var(--shadow-glow)',
-				'glow-green': 'var(--shadow-glow-green)',
+				'glow-purple': 'var(--shadow-glow-purple)',
 				'card': 'var(--shadow-card)',
 				'float': 'var(--shadow-float)'
 			},

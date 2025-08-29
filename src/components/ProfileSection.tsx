@@ -1,4 +1,5 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import TypewriterEffect from "./TypewriterEffect";
 
 const ProfileSection = () => {
   return (
@@ -7,9 +8,9 @@ const ProfileSection = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
       
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-10 pt-20">{/* Added pt-20 for spacing */}
         {/* Profile Picture */}
-        <div className="relative inline-block mb-8 fade-in-up">
+        <div className="relative inline-block mb-12 fade-in-up">{/* Increased margin from mb-8 to mb-12 */}
           <div className="profile-glow">
             <img
               src="/lovable-uploads/0015c482-3ec8-494b-b4fb-863dc109558a.png"
@@ -20,13 +21,17 @@ const ProfileSection = () => {
         </div>
         
         {/* Name & Title */}
-        <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 gradient-text">
+        <div className="fade-in-up mb-8" style={{ animationDelay: '0.2s' }}>{/* Added mb-8 for spacing */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text-name">
             Abdul Basit
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-6 font-light">
-            Web Developer | Building sleek, responsive websites
-          </p>
+          <div className="text-xl md:text-2xl text-muted-foreground font-light">
+            <TypewriterEffect 
+              text="Web Developer | Building sleek, responsive websites"
+              delay={1000}
+              speed={80}
+            />
+          </div>
         </div>
         
         {/* Bio */}

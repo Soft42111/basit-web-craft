@@ -23,11 +23,11 @@
     --primary-glow: 217 91% 70%;
     --primary-subtle: 217 91% 20%;
     
-    /* Secondary Neon Green */
-    --secondary: 120 100% 60%;
+    /* Secondary Purple (was green) */
+    --secondary: 280 100% 70%;
     --secondary-foreground: 222 84% 4.9%;
-    --secondary-glow: 120 100% 70%;
-    --secondary-subtle: 120 100% 20%;
+    --secondary-glow: 280 100% 80%;
+    --secondary-subtle: 280 100% 30%;
     
     /* Neutral Grays */
     --muted: 215 28% 17%;
@@ -42,13 +42,13 @@
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(120 100% 60%), hsl(120 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 100% 70%), hsl(280 100% 80%));
     --gradient-dark: linear-gradient(180deg, hsl(222 84% 4.9%), hsl(224 71% 7%));
     --gradient-glow: radial-gradient(circle, hsl(217 91% 60% / 0.3), transparent 70%);
     
     /* Shadows & Effects */
     --shadow-glow: 0 0 30px hsl(217 91% 60% / 0.4);
-    --shadow-glow-green: 0 0 30px hsl(120 100% 60% / 0.4);
+    --shadow-glow-purple: 0 0 30px hsl(280 100% 70% / 0.4);
     --shadow-card: 0 10px 30px -10px hsl(222 84% 4.9% / 0.5);
     --shadow-float: 0 20px 40px -10px hsl(222 84% 4.9% / 0.3);
     
@@ -77,6 +77,38 @@
 }
 
 @layer components {
+  /* Custom Cursor */
+  .custom-cursor {
+    cursor: none;
+  }
+  
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+  }
+  
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--secondary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.05s ease;
+  }
+  
   /* Profile Picture Glow */
   .profile-glow {
     @apply relative;
@@ -183,6 +215,35 @@
     @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
   
+  .gradient-text-name {
+    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Typewriter Effect */
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+  
   /* Glow Button */
   .glow-button {
     @apply relative bg-gradient-to-r from-primary to-secondary text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105;
@@ -209,7 +270,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-['Inter'] overflow-x-hidden;
+    @apply bg-background text-foreground font-['Inter'] overflow-x-hidden custom-cursor;
     background: var(--gradient-dark);
   }
   
