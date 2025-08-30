@@ -251,8 +251,12 @@
   }
   
   .glow-button:hover {
-    box-shadow: var(--shadow-glow);
-  }
+  box-shadow: var(--shadow-glow);
+}
+
+.shadow-glow-intense {
+  box-shadow: var(--shadow-glow-intense);
+}
   
   /* Scroll Animations */
   .fade-in-up {

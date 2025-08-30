@@ -4,6 +4,8 @@ import ProfileSection from "@/components/ProfileSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TechStackSection from "@/components/TechStackSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import ScrollProgress from "@/components/ScrollProgress";
+import ParticleBackground from "@/components/ParticleBackground";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
@@ -15,7 +17,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden" style={{ scrollBehavior: 'smooth' }}>
+      <ScrollProgress />
+      <ParticleBackground />
       <Navigation />
       <main>
         <ProfileSection />

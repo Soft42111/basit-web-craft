@@ -1,5 +1,6 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 import TypewriterEffect from "./TypewriterEffect";
+import DownloadCV from "./DownloadCV";
 
 const ProfileSection = () => {
   return (
@@ -42,8 +43,13 @@ const ProfileSection = () => {
           </p>
         </div>
         
+        {/* Download CV Button */}
+        <div className="fade-in-up mb-8" style={{ animationDelay: '0.6s' }}>
+          <DownloadCV />
+        </div>
+        
         {/* Social Links */}
-        <div className="fade-in-up flex justify-center space-x-6" style={{ animationDelay: '0.6s' }}>
+        <div className="fade-in-up flex justify-center space-x-6" style={{ animationDelay: '0.8s' }}>
           <a
             href="https://x.com/soft4211"
             target="_blank"
