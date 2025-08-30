@@ -14,7 +14,7 @@ const ProfileSection = () => {
         <div className="relative inline-block mb-12 fade-in-up">{/* Increased margin from mb-8 to mb-12 */}
           <div className="profile-glow">
             <img
-              src="/lovable-uploads/0015c482-3ec8-494b-b4fb-863dc109558a.png"
+              src="/profile.png"
               alt="Abdul Basit - Web Developer"
               className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/20 shadow-glow relative z-10"
             />
