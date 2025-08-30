@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import ProfileSection from "@/components/ProfileSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TechStackSection from "@/components/TechStackSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import ContactSection from "@/components/ContactSection";
 import ScrollProgress from "@/components/ScrollProgress";
 import ParticleBackground from "@/components/ParticleBackground";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -23,9 +26,12 @@ const Index = () => {
       <Navigation />
       <main>
         <ProfileSection />
+        <AboutSection />
+        <ServicesSection />
         <ProjectsSection />
         <TechStackSection />
         <ExperienceSection />
+        <ContactSection />
       </main>
       
       {/* Footer */}

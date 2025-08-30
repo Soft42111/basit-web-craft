@@ -15,9 +15,12 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
     { name: "Tech Stack", href: "#tech" },
-    { name: "Experience", href: "#experience" }
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" }
   ];
 
   const scrollToSection = (href: string) => {
