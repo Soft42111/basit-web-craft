@@ -1,6 +1,6 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 import TypewriterEffect from "./TypewriterEffect";
-import DownloadCV from "./DownloadCV";
+import ConnectButton from "./ConnectButton";
 
 const ProfileSection = () => {
   return (
@@ -43,9 +43,9 @@ const ProfileSection = () => {
           </p>
         </div>
         
-        {/* Download CV Button */}
+        {/* Connect Button */}
         <div className="fade-in-up mb-8" style={{ animationDelay: '0.6s' }}>
-          <DownloadCV />
+          <ConnectButton />
         </div>
         
         {/* Social Links */}
